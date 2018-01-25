@@ -1,0 +1,29 @@
+--CREATE TABLE T1 
+--(
+--	UserName nvarchar(50),
+--	EmailAddress nvarchar(75)
+--)
+
+--CREATE TABLE T2
+--(
+--	ActionType Char(1),
+--	UserName nvarchar(50),
+--	EmailAddress nvarchar(75),
+--	LogDate Datetime
+--)
+
+CREATE TRIGGER trgAuditLog_IUD
+ON T1
+AFTER INSERT
+AS
+	INSERT INTO T2
+	SELECT 'I',*,getdate() FROM inserted
+
+INSERT INTO T1
+SELECT 'Amit Kasundra', 'Amit.kasundra@tatvasoft.com'
+
+SELECT * FROM T2
+
+
+
+--- http://www.aspsnippets.com/Articles/Simple-Insert-Update-and-Delete-Triggers-in-SQL-Server-with-example.aspx

@@ -1,0 +1,133 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author: Amit D. Kasundra
+-- Create date: 03-Feb-2017
+-- Description:	This procedure is used to get product details based on several parameters. Like Page wise records, sort condition and other filter criteria.
+-- =============================================
+
+ALTER PROCEDURE [dbo].[usp_getProducts]
+(
+	@PageSize INT = 10,
+	@PageIndex INT = 1,
+	@OrderBy VARCHAR(100) = '',
+	@Categories VARCHAR(1000) = '',
+	@Colour VARCHAR(36)='',
+	@Size VARCHAR(1000)='',
+	@MinPrice DECIMAL(18,2) = null,
+	@MaxPrice DECIMAL(18,2) = null,
+	@Result INT OUTPUT	
+)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+ 
+	--;WITH CTE_Results
+	--AS 
+	--(
+	--	SELECT 
+	--		ROW_NUMBER() OVER 
+	--		(ORDER BY
+	--			CASE WHEN (@OrderBy = 'NAME#ASC') THEN Name END ASC,
+	--			CASE WHEN (@OrderBy = 'NAME#DESC') THEN Name END DESC,
+
+	--			CASE WHEN (@OrderBy = 'PRICE#ASC') THEN Price END ASC,
+	--			CASE WHEN (@OrderBy = 'PRICE#DESC') THEN Price END DESC
+	--		) AS ROWNUM,			
+	--		Count(1) OVER () AS TotalCount,
+	--		*
+	--	FROM
+	--		Products
+	--	WHERE
+	--		(ISNULL(@Coulor,'') = '' OR Colour LIKE '%'+ @Coulor + '%') AND 
+	--		(ISNULL(@Categories,'') = '' OR CategoryID IN (SELECT Item FROM dbo.SplitString('1,2,3,4', ','))) AND
+	--		(ISNULL(@Size,'') = '' OR Size IN (SELECT Item FROM dbo.SplitString('XL,XXL,XXXL', ','))) AND
+	--		(@MinPrice IS NULL OR Price >= @MinPrice) AND
+	--		(@MaxPrice IS NULL OR Price <= @MaxPrice)
+	--)	 
+	
+	-- SELECT * FROM CTE_Results ORDER BY ROWNUM  OFFSET ((@PageIndex-1) * @PageSize) ROWS FETCH NEXT @PageSize ROWS ONLY;	
+
+	IF OBJECT_ID('TEMPDB..#TEMP_PRODUCTS') IS NOT NULL
+		DROP TABLE #TEMP_PRODUCTS
+
+	SELECT 
+		ROW_NUMBER() OVER 
+		(ORDER BY
+			CASE WHEN (@OrderBy = 'NAME#ASC') THEN Name END ASC,
+			CASE WHEN (@OrderBy = 'NAME#DESC') THEN Name END DESC,
+
+			CASE WHEN (@OrderBy = 'PRICE#ASC') THEN Price END ASC,
+			CASE WHEN (@OrderBy = 'PRICE#DESC') THEN Price END DESC
+		) AS ROWNUM,			
+		*
+	INTO
+		#TEMP_PRODUCTS
+	FROM
+		Products
+	WHERE
+		(ISNULL(@Colour,'') = '' OR Colour LIKE '%'+ @Colour + '%') AND 
+		(ISNULL(@Categories,'') = '' OR CategoryID IN (SELECT Item FROM dbo.SplitString('1,2,3,4', ','))) AND
+		(ISNULL(@Size,'') = '' OR Size IN (SELECT Item FROM dbo.SplitString('XL,XXL,XXXL', ','))) AND
+		(@MinPrice IS NULL OR Price >= @MinPrice) AND
+		(@MaxPrice IS NULL OR Price <= @MaxPrice)
+		    
+	SELECT  @Result = @@ROWCOUNT
+
+	SELECT * FROM #TEMP_PRODUCTS ORDER BY ROWNUM  OFFSET ((@PageIndex-1) * @PageSize) ROWS FETCH NEXT @PageSize ROWS ONLY;	
+
+	--SELECT  @Result = COUNT(1) OVER() from #TEMP_PRODUCTS
+
+	SELECT 
+		'Size' as vType, 
+		ISNULL(Size,'ALL (') + CONVERT(VARCHAR,COUNT(ProductID)) + ')' DisplayVal		
+	FROM 
+		#TEMP_PRODUCTS
+	GROUP BY
+		Size
+
+	UNION ALL 
+
+	SELECT 
+		'COLOUR' as vType, 
+		ISNULL(Colour,'ALL (') + CONVERT(VARCHAR,COUNT(ProductID))  + ')' DisplayVal		
+	FROM 
+		#TEMP_PRODUCTS
+	GROUP BY
+		Colour
+
+	UNION ALL
+	
+	SELECT 
+		'CATEGORY' as vType, 
+		ISNULL(CONVERT(VARCHAR,CategoryID),'ALL (') + CONVERT(VARCHAR,COUNT(ProductID))  + ')' DisplayVal		
+	FROM 
+		#TEMP_PRODUCTS
+	GROUP BY
+		CategoryID
+	
+	IF OBJECT_ID('TEMPDB..#TEMP_PRODUCTS') IS NOT NULL
+		DROP TABLE #TEMP_PRODUCTS
+
+END
+
+
+
+
+
+--DECLARE @TotalRecords INT;
+
+--exec [usp_getProducts] @Result = @TotalRecords OUTPUT
+
+--select @TotalRecords
+
+
+
+--DECLARE @TotalRecords INT;
+
+--EXEC [usp_getProducts] @Result = @TotalRecords OUTPUT, @PageSize = 5, @PageIndex = 2
+
+--select @TotalRecords
