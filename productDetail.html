@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>PRODUCTDETAILS page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {                            
+                $('h1#prize').text(120 * 10.33);
+
+                var i = Math.floor(Math.random() * 2) + 1;
+                if (i == 1) {
+                    $('.btn-success').hide();
+                    $('.required').prop('disabled', true);
+
+                }
+                else {
+                    $('.btn-danger').hide();
+                    $('.required').prop('disabled', false);
+                }            
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="container col-sm-9">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img class="navbar-brand" href="#"><img src="images/logo.svg" class="size" style="margin-top:-10px;"></a></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" style="padding-top:7px;">
+                        <li><a href="#">HOME</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <a class="drop">MEN</a>
+                                <div class="dropdown-content">
+                                    <a href="#">Jeans</a>
+                                    <a href="#">Shirt</a>
+                                    <a href="#">Tshirt</a>
+                                    <a href="#">Chinos</a>
+                                    <a href="#">Blazers</a>
+                                    <a href="#">NightWear</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="#">WOMEN</a></li>
+                        <li><a href="#">KIDS</a></li>
+                        <li><a href="#">ACCESSORIES</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container col-sm-3">
+                <ul class="nav navbar-nav row" style="padding-top:7px;">
+                    <li class="col-sm-5 col-xs-5">
+                        <a href="#" class="color_red" data-toggle="modal" data-target="#myModal">Login</a>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title text-center" id="myModalLabel">eShopper login</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="#" onsubmit="return loginValidation();" method="post">
+                                            <div class="form-group">
+                                                <label for="Uname">UserNAme:</label>
+                                                <input type="text" class="form-control" name="Username" id="txtuname" placeholder="Enter your username" autofocus>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Password:</label>
+                                                <input type="password" class="form-control" name="Password" id="txtpword" placeholder="Enter your Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Password:</label>
+                                                <input type="password" class="form-control" name="confirm Password" id="txtpword1" placeholder="ReEnter your password">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary display-inline float_left">Login</button>
+                                            <h6 class="text-right">Not a member? <a class="color_red" href="">Register</a></h6>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-sm-4 col-xs-4">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="sprite bag">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right drop_cart">
+                                <li style="padding-bottom:10px;">Recently added items</li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <img src="images/cart-img01.jpg" />
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>U.S. polo assn. full sleev plain tshirt for man</p>
+                                            <p class="color_red">$120.00</p>
+                                            <p>Qty:1</p>
+                                            <p>size:Medium/large</p>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <img src="images/edit.png" />
+                                            <img src="images/cross.svg" class="svg_size" />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <img src="images/cart-img01.jpg" />
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>U.S. polo assn. full sleev plain tshirt for man</p>
+                                            <p class="color_red">$120.00</p>
+                                            <p>Qty:1</p>
+                                            <p>size:Medium/large</p>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <img src="images/edit.png" />
+                                            <img src="images/cross.svg" class="svg_size" />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><p class="float_left">Cart subtotal: </p><p class="color_red"> $168.20</p></li>
+                                <li class="text-center"><button class="btn btn-primary text-center" type="button"> View Cart</button></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="col-sm-3 col-xs-3">
+                        <div class="top-bar">
+                            <div class="search-container">
+                                <input class="search glyphicon glyphicon-search" type="search" placeholder="" style="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container-fluid">
+        <div class="row banner">
+            <img class="img-responsive margin-top image" src="images/inner-banner.jpg">
+            <div class="banner_text">
+                <p>T-shirts</p>
+            </div>
+        </div>
+    </section>
+    <nav aria-label="breadcrumb" class="breadcrumb_bgcolor">
+        <ol class="breadcrumb container">
+            <li class="breadcrumb-item"><a href="home1.html" class="breadcrumb_color">Home</a></li>
+            <li class="breadcrumb-item"><a href="#" class="breadcrumb_color">Men</a></li>
+            <li class="breadcrumb-item"><a href="#" class="breadcrumb_color">T-shirt</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Polo assn. full sleeve plain tshirt for man</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <div class="media">
+                <div class="media-left">
+                    <img src="images/success.svg" class="svg_size" />
+                </div>
+                <div class="media-body">
+                    <strong>Success!</strong> U.S. polo assn. full sleev plain tshirt for man was added to your shopping cart
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-xs-12">
+                <img src="images/new-thumb-01-big.jpg" class="image" alt="">
+                <img src="images/img01.jpg" class="image" alt="">
+            </div>
+            <div class="col-sm-7 col-xs-12">
+                <p class="font_36">Polo assn. full sleeve plain tshirt for man</p>
+                <p>Polo assn. full sleeve plain tshirt for man.Polo assn. full sleeve plain tshirt for man.Polo assn. full sleeve plain tshirt for man.Polo assn. full sleeve plain tshirt for manPolo assn. full sleeve plain tshirt for man.Polo assn. full sleeve plain tshirt for man</p>
+                <p>sku:<b>mag209_prod1</b></p>
+                <p>Availability:<button type="submit" class="btn-success">In stock</button><button type="submit" class="btn-danger" style="margin-left:5px;">Not avilable</button></p>
+                <h1 class="color_red" id="prize">$120.00</h1>
+                <div class="form-group">
+                    <label for="Contry" class="float_left">Size*</label><label class="color_red float_right">*required field</label>
+                    <select class="form-control" id="InputContry">
+                        <option>Please Select</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-sm-1 col-xs-1">
+                        <h5>Qty.</h5>
+                    </div>
+                    <div class="col-sm-2 col-xs-4">
+                        <div class="form-group">
+                            <select class="form-control" id="InputContry">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <button type="submit" class="btn btn-primary required" id="addcart"><img class="sprite addcart"></img> ADD TO CART</button>
+                    </div>
+                </div>
+                <a class="color_red">add to wishlist</a>
+                <ul class="nav nav-tabs" style="padding-top:20px;">
+                    <li class="active"><a data-toggle="tab" href="#Delivery" class="product model_border">Delivery</a></li>
+                    <li><a data-toggle="tab" href="#Shipping" class="product model_border">Shipping</a></li>
+                    <li><a data-toggle="tab" href="#Sizeguide" class="product model_border">Sizeguide</a></li>
+                </ul>
+                <div class="tab-content model_border">
+                    <div id="Delivery" class="tab-pane fade in active">
+                        <h3>delivery</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="Shipping" class="tab-pane fade">
+                        <h3>Shipping</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="Sizeguide" class="tab-pane fade">
+                        <h3>Sizeguide</h3>
+                        <div class="table-responsive">
+                            <table class="table" style="border:1px solid #dddddd">
+                                <thead style="background-color:#f5f5f5;">
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>S</th>
+                                        <th>M</th>
+                                        <th>L</th>
+                                        <th>XL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Men</td>
+                                        <td>7-10</td>
+                                        <td>10-13</td>
+                                        <td>13-15</td>
+                                        <td>15-17</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Women</td>
+                                        <td>7-9</td>
+                                        <td>10-12</td>
+                                        <td>13-14</td>
+                                        <td>15-16</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs" style="padding-top:20px;">
+            <li class="active"><a data-toggle="tab" href="#Productdescription" class="product">Product description</a></li>
+            <li><a data-toggle="tab" href="#ProductREview" class="product">Product REview</a></li>
+            <li><a data-toggle="tab" href="#CMStab" class="product">CMS tab</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="Productdescription" class="tab-pane fade in active">
+                <h3>Product description</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div id="ProductREview" class="tab-pane fade">
+                <a href="#demo" class="color_red" data-toggle="collapse">Write a review</a>
+                <div id="demo" class="collapse">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <img src="images/star.svg" class="svg_size">
+                                <img src="images/star.svg" class="svg_size">
+                                <img src="images/star.svg" class="svg_size">
+                                <img src="images/star.svg" class="svg_size">
+                                <img src="images/star.svg" class="svg_size">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write a review" style="resize:none;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">SIGN UP</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div id="CMStab" class="tab-pane fade">
+                <h3>CMS tab</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </div>
+    </div>
+    <section class="footer_form">
+        <div class="email-text">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="form footer_text">
+                        <form class="form-horizontal">
+                            Subscribe for Newsletter
+                            <input type="email" class="input-email email-field" placeholder="Enter your email address">
+                            <button type="submit" class="sign_up">SIGN UP</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <ul class="list-inline">
+                            <li>
+                                <a class="a-color" href="#">Home</a>
+                            </li>
+                            <li>
+                                <a class="a-color" href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a class="a-color" href="#">Register</a>
+                            </li>
+                            <li>
+                                <a class="a-color" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            <div class="container border">
+                <div class="row text-center">
+                    <p>� 2017 eShopper online store. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

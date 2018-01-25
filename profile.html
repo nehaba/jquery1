@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>PROFILE page</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style1.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!--<script src="js/jquery.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/profileRagister.js"></script>
+</head>
+<body class="profile_page">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="container col-sm-9">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img class="navbar-brand" href="#"><img src="images/logo.svg" class="size" style="margin-top:-10px;"></a></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" style="padding-top:7px;">
+                        <li><a href="#">HOME</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <a class="drop">MEN</a>
+                                <div class="dropdown-content">
+                                    <a href="#">Jeans</a>
+                                    <a href="#">Shirt</a>
+                                    <a href="#">Tshirt</a>
+                                    <a href="#">Chinos</a>
+                                    <a href="#">Blazers</a>
+                                    <a href="#">NightWear</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="#">WOMEN</a></li>
+                        <li><a href="#">KIDS</a></li>
+                        <li><a href="#">ACCESSORIES</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container col-sm-3">
+                <ul class="nav navbar-nav row" style="padding-top:7px;">
+                    <li class="col-sm-5 col-xs-5">
+                        <a href="#" class="color_red" data-toggle="modal" data-target="#myModal">Login</a>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title text-center" id="myModalLabel">eShopper login</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="#" onsubmit="return loginValidation();" method="post">
+                                            <div class="form-group">
+                                                <label for="Uname">UserNAme:</label>
+                                                <input type="text" class="form-control" name="Username" id="" placeholder="Enter your username" autofocus>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Password:</label>
+                                                <input type="password" class="form-control" name="Password" id="" placeholder="Enter your Password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pwd">Password:</label>
+                                                <input type="password" class="form-control" name="confirm Password" id="txtpword1" placeholder="ReEnter your password">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary display-inline float_left">Login</button>
+                                            <h6 class="text-right">Not a member? <a class="color_red" href="">Register</a></h6>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-sm-4 col-xs-4">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="sprite bag">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right drop_cart">
+                                <li style="padding-bottom:10px;">Recently added items</li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <img src="images/cart-img01.jpg" />
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>U.S. polo assn. full sleev plain tshirt for man</p>
+                                            <p class="color_red">$120.00</p>
+                                            <p>Qty:1</p>
+                                            <p>size:Medium/large</p>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <img src="images/edit.png" />
+                                            <img src="images/cross.svg" class="svg_size" />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <img src="images/cart-img01.jpg" />
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <p>U.S. polo assn. full sleev plain tshirt for man</p>
+                                            <p class="color_red">$120.00</p>
+                                            <p>Qty:1</p>
+                                            <p>size:Medium/large</p>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <img src="images/edit.png" />
+                                            <img src="images/cross.svg" class="svg_size" />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><p class="float_left">Cart subtotal: </p><p class="color_red"> $168.20</p></li>
+                                <li class="text-center"><button class="btn btn-primary text-center" type="button"> View Cart</button></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="col-sm-3 col-xs-3">
+                        <div class="top-bar">
+                            <div class="search-container">
+                                <input class="search glyphicon glyphicon-search" type="search" placeholder="" style="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container-fluid">
+        <div class="row banner">
+            <img class="img-responsive margin-top image" src="images/inner-banner.jpg">
+            <div class="banner_text">
+                <p>Update Profile</p>
+            </div>
+        </div>
+    </section>
+    <nav aria-label="breadcrumb" class="breadcrumb_bgcolor">
+        <ol class="breadcrumb container">
+            <li class="breadcrumb-item"><a href="home1.html" class="breadcrumb_color">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Update Profile</li>
+        </ol>
+    </nav>   
+    <div class="container">
+        <form action="home1.html" onsubmit="return registerValidation();" onload="onloadregister()" method="post" id="register_page">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="InputUserName">Username</label>
+                                <input type="text" class="form-control" id="InputUserName" placeholder="test123" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="InputGender" id="gender">Gender*</label><br />
+                            <label class="radio-inline"><input type="radio" name="optradio" id="male">Male</label>
+                            <label class="radio-inline"><input type="radio" name="optradio" id="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="InputPassword">Password*</label>
+                                <input type="password" class="form-control red-tooltip" name="Password" id="txtpword" placeholder="Please enter your Password" data-toggle="tooltip" title="Password should be minimum 8 characters, at least one Number,one Capital Letter,one Symbol" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="InputEmail">Email</label>
+                                <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="test123@gmail.com" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="InputFirstName">First name*</label>
+                                <input type="text" class="form-control" id="txtfname" name="FiratName" placeholder="Please enter your first name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="InputPhone">mobile*</label>
+                                <input class="form-control" id="txtmnumber"
+                                       name="phone" title="" type="tel"
+                                       value="" placeholder="Please enter your phone number" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="InputLastName">Last name</label>
+                                <input type="text" class="form-control" id="txtlname" name="FiratName" placeholder="Please enter your Last name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="InputPhone">Phone*</label>
+                                <input class="form-control" id="txtpnumber"
+                                       name="phone" title="" type="tel"
+                                       value="" placeholder="Please enter your phone number" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" name="clothType" id="selectAll">select all</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" class="clothType">Western wear</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" class="clothType">Sports wear</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" class="clothType">Indian wear</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" id="clothTypeOther">Other</label>
+                            </div>
+                            <div class="form-group addbox">
+                                <input type="text" class="form-control" id="txtintrest" placeholder="Please enter other interest" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+
+                            <label>Date of Birth</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control" id="datepicker" placeholder="Date of Birth" />
+                                <span class="input-group-addon">
+                                    <img src="images/date.png">
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12" id="billing_info">
+                            <h2 style="font-size:20px;display:inline-block;">Billing Address*</h2>
+                            <div class="form-group">
+                                <label for="InputStreet">Street</label>
+                                <input type="text" class="form-control billing" id="txtstreet" placeholder="Please enter your street" />
+                            </div>
+                            <div class="form-group">
+                                <label for="InputCity">city</label>
+                                <input type="text" class="form-control billing" id="txtcity" placeholder="Please enter your city" />
+                            </div>
+                            <div class="form-group">
+                                <label for="state">state</label>
+                                <select class="form-control billing dropdown" id="txtstate">
+                                    <option value="0">--select one--</option>
+                                    <option value="1">Gujrat</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Contry">contry</label>
+                                <select class="form-control billing dropdown" id="txtcontry">
+                                    <option value="0">--select one--</option>
+                                    <option value="1">India</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h2 class="inline_block font_20">Shopping Address*</h2>
+                                    <div class="checkbox inline_block" id="chksame" style="margin-top:20px;">
+                                        <label style="font-size:13px; "><input type="checkbox" value="" id="chkbill">same as Billing Address</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="shopping_info">
+                                <div class="form-group">
+                                    <label for="InputStreet">Street</label>
+                                    <input type="text" class="form-control shipping" id="txtstreet1" placeholder="Please enter your street" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputCity">city</label>
+                                    <input type="text" class="form-control shipping" id="txtcity1" placeholder="Please enter your city" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">state</label>
+                                    <select class="form-control shipping dropdown" id="txtstate1">
+                                        <option value="0">--select one--</option>
+                                        <option value="1">Gujrat</option>
+                                        <option value="2">3</option>
+                                        <option value="3">4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Contry">contry</label>
+                                    <select class="form-control shipping dropdown" id="txtcountry1">
+                                        <option value="0">--select one--</option>
+                                        <option value="1">India</option>
+                                        <option value="2">3</option>
+                                        <option value="3">4</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-right: 4px !important">
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label style="font-size:13px; "><input type="checkbox" id="chkterms1" value="">I Agree with Terms & Conditions</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 text-right">
+                        <button type="submit" class="btn btn-primary" id="update">Update</button>                        
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <section class="footer_form">
+        <div class="email-text">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="form footer_text">
+                        <form class="form-horizontal">
+                            Subscribe for Newsletter
+                            <input type="email" class="input-email email-field" placeholder="Enter your email address">
+                            <button type="submit" class="sign_up">SIGN UP</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <ul class="list-inline">
+                            <li>
+                                <a class="a-color" href="#">Home</a>
+                            </li>
+                            <li>
+                                <a class="a-color" href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a class="a-color" href="#">Register</a>
+                            </li>
+                            <li>
+                                <a class="a-color" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            <div class="container border">
+                <div class="row text-center">
+                    <p>� 2017 eShopper online store. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
